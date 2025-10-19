@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>$HOT & $PATRIOTX | Premium Solana Tokens</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --hot-primary: #FF4B4B;
+      --hot-secondary: #FF6B6B;
+      --patriot-primary: #1E90FF;
+      --patriot-secondary: #4169E1;
+      --dark-bg: #0A0E27;
+      --darker-bg: #060817;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --text-primary: #FFFFFF;
+      --text-secondary: #A0AEC0;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--darker-bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    .bg-animation { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
+    .gradient-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.15;
+      animation: float 20s infinite ease-in-out;
+    }
+    .orb-1 { width: 600px; height: 600px; background: var(--hot-primary); top: -200px; left: -200px; animation-delay: 0s; }
+    .orb-2 { width: 500px; height: 500px; background: var(--patriot-primary); bottom: -150px; right: -150px; animation-delay: 7s; }
+    .orb-3 { width: 400px; height: 400px; background: #9D4EDD; top: 50%; left: 50%; animation-delay: 14s; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(100px, -100px) scale(1.1); }
+      66% { transform: translate(-100px, 100px) scale(0.9); }
+    }
+    nav {
+      position: fixed; top: 0; width: 100%;
+      padding: 20px 80px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000;
+      background: rgba(10, 14, 39, 0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 900; letter-spacing: -0.5px; }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--hot-primary), var(--patriot-primary));
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    }
+    .nav-links { display: flex; gap: 48px; align-items: center; }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none; font-weight: 500; font-size: 15px;
+      transition: all 0.3s ease; position: relative;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .connect-btn {
+      background: linear-gradient(135deg, var(--hot-primary), var(--patriot-primary));
+      border: none; padding: 12px 28px; border-radius: 8px; color: white;
+      font-weight: 600; font-size: 14px; cursor: pointer;
+    }
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 120px 80px 80px; z-index: 1;
+    }
+    .hero h1 { font-size: 72px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--hot-primary), var(--patriot-primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 20px; color: var(--text-secondary); max-width: 600px; margin-bottom: 48px; }
+    .token-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 64px; }
+    .token-card {
+      background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px; padding: 48px; transition: 0.3s;
+    }
+    .token-card:hover { transform: translateY(-8px); }
+    .token-header { display: flex; align-items: center; gap: 20px; margin-bottom: 32px; }
+    .token-icon { width: 72px; height: 72px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 36px; }
+    .hot-icon { background: linear-gradient(135deg, var(--hot-primary), var(--hot-secondary)); }
+    .patriot-icon { background: linear-gradient(135deg, var(--patriot-primary), var(--patriot-secondary)); }
+    .token-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary {
+      flex: 1; padding: 16px; border-radius: 12px;
+      font-weight: 600; font-size: 15px; text-align: center;
+      text-decoration: none; display: flex; justify-content: center; align-items: center; gap: 8px;
+    }
+    .btn-hot { background: linear-gradient(135deg, var(--hot-primary), var(--hot-secondary)); color: white; }
+    .btn-patriot { background: linear-gradient(135deg, var(--patriot-primary), var(--patriot-secondary)); color: white; }
+    .btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; background: transparent; }
+    .contract-box {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 14px; color: var(--text-secondary);
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: linear-gradient(135deg, var(--hot-primary), var(--patriot-primary));
+      border: none; border-radius: 8px; color: white;
+      font-weight: 600; padding: 6px 14px; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .copy-btn:hover { transform: scale(1.05); box-shadow: 0 0 12px rgba(255,255,255,0.2); }
+    .copy-btn.copied { background: #00FF88; color: #000; }
+
+    .features { padding: 120px 80px; text-align: center; }
+    .section-title { font-size: 56px; font-weight: 900; margin-bottom: 24px; }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+    .feature-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; transition: 0.3s; }
+    .feature-card:hover { transform: translateY(-8px); background: rgba(255,255,255,0.05); }
+
+    footer { padding: 64px 80px 32px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; }
+    .social-links { display: flex; gap: 16px; }
+    .social-icon { 
+      width: 40px; height: 40px; border-radius: 8px; 
+      display: flex; align-items: center; justify-content: center; 
+      background: rgba(255,255,255,0.05); color: var(--text-secondary); 
+      text-decoration: none; transition: all 0.3s ease; 
+      cursor: pointer; position: relative; z-index: 10;
+    }
+    .social-icon:hover { 
+      background: rgba(255,255,255,0.1); color: var(--text-primary); 
+      transform: translateY(-4px); 
+    }
+    .social-icon:active { 
+      transform: translateY(-2px) scale(0.95); 
+      box-shadow: 0 0 20px rgba(30, 144, 255, 0.5); 
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-animation">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <nav>
+    <div class="logo">
+      <div class="logo-icon">
+        <img src="https://i.ibb.co/G3P3k204/image.jpg" alt="Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+      </div>
+      <span>HOT × PATRIOTX</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#tokens">Tokens</a>
+      <a href="#features">Features</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div>
+      <h1>Next Generation<br><span class="gradient-text">DeFi Tokens</span></h1>
+      <p>Experience the future with $HOT and $PATRIOTX on Solana.</p>
+      <div class="token-cards" id="tokens">
+
+        <!-- HOT -->
+        <div class="token-card hot-card">
+          <div class="token-header">
+            <div class="token-icon hot-icon">
+              <img src="https://i.ibb.co/HW8qRck/image.jpg" alt="HOT" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+            </div>
+            <div><h3>$HOT</h3><p>HOT/SOL</p></div>
+          </div>
+          <p>$HOT enables lightning-fast trading and liquidity on Solana.</p>
+          <div class="token-actions">
+            <a href="https://jup.ag/swap/SOL-GBdjfpasx3DWH8oh87hcwg6AjoXVH8i6ib3n3wchpump" target="_blank" class="btn-primary btn-hot">Buy $HOT ↗</a>
+            <a href="https://dexscreener.com/solana/gbdjfpasx3dwh8oh87hcwg6ajoxvh8i6ib3n3wchpump" target="_blank" class="btn-secondary">View Chart 📊</a>
+          </div>
+          <div class="contract-box">
+            <span id="hot-ca">GBdjFpASX3dWH8oH87hcwG6ajoXvh8i6ib3N3wChpump</span>
+            <button class="copy-btn" onclick="copyAddress('hot', this)">Copy</button>
+          </div>
+        </div>
+
+        <!-- PATRIOTX -->
+        <div class="token-card patriot-card">
+          <div class="token-header">
+            <div class="token-icon patriot-icon">
+              <img src="https://i.ibb.co/G3P3k204/image.jpg" alt="PATRIOTX" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;">
+            </div>
+            <div><h3>$PATRIOTX</h3><p>PATRIOTX/SOL</p></div>
+          </div>
+          <p>$PATRIOTX stands for financial freedom and community-driven DeFi.</p>
+          <div class="token-actions">
+            <a href="https://jup.ag/swap/SOL-8TnKcdx94eL3sjySwrsw1i858axeK3V8ePsxffgEmzdn" target="_blank" class="btn-primary btn-patriot">Buy $PATRIOTX ↗</a>
+            <a href="https://dexscreener.com/solana/8tnkcdx94el3sjyswrsw1i858axek3v8epsxffgemzdn" target="_blank" class="btn-secondary">View Chart 📊</a>
+          </div>
+          <div class="contract-box">
+            <span id="patriot-ca">AxmfsB1bSjCrxaNRToRNpZ1CibivDzFdja75PdNKpump</span>
+            <button class="copy-btn" onclick="copyAddress('patriot', this)">Copy</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2 class="section-title">Why Choose HOT × PATRIOTX</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>⚡ Lightning Fast</h3>
+        <p>Powered by Solana for ultra-low fees and near-instant transactions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🛡️ Secure & Audited</h3>
+        <p>Smart contracts undergo continuous audits to ensure top-tier security.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🌎 Community Driven</h3>
+        <p>Both tokens thrive through strong community governance and transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2025 HOT × PATRIOTX. All rights reserved.</div>
+    <div class="social-links">
+      <a href="https://x.com/PatriotXAI" target="_blank" class="social-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://t.me/PatriotX_Hot_HHB" target="_blank" class="social-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon">🌐</a>
+    </div>
+  </footer>
+
+  <script>
+    function copyAddress(token, btn) {
+      const address = token === 'hot'
+        ? document.getElementById('hot-ca').innerText
+        : document.getElementById('patriot-ca').innerText;
+
+      navigator.clipboard.writeText(address);
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 1500);
+    }
+
+    function connectWallet() {
+      alert('Wallet connect feature coming soon!');
+    }
+  </script>
+</body>
+</html>
